@@ -1,6 +1,5 @@
 package com.sda.traianszabi.online_library.config;
 
-import com.sda.traianszabi.online_library.service.BookService;
 import com.sda.traianszabi.online_library.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

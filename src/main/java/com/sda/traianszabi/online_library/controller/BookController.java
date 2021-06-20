@@ -3,7 +3,6 @@ package com.sda.traianszabi.online_library.controller;
 import com.sda.traianszabi.online_library.error.ResourceNotFoundException;
 import com.sda.traianszabi.online_library.model.Book;
 import com.sda.traianszabi.online_library.service.BookService;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +38,6 @@ public class BookController {
     @PostMapping("/books/create")
     public String createBook(@Valid @RequestBody Book book){
         bookService.save(book);
-        return "Book succesfully saved";
+        return "Book succesfull saved";
     }
 }
