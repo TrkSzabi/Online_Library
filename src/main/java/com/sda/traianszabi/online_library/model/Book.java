@@ -1,26 +1,37 @@
 package com.sda.traianszabi.online_library.model;
 
 import javax.persistence.*;
-import java.util.Date;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "book")
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotBlank
     @Column(name = "book_title")
     private String bookTitle;
+
+    @NotBlank
     @Column(name = "desciprtion")
     private String description;
-    @Column(name = "relase_date")
-    private Date relaseDate;
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "release_date")
+    private Timestamp releaseDate;
+
+    @Positive
     @Column(name = "price")
     private String price;
 
-    @OneToOne
+    @ManyToOne
     private Category category;
 
     public Integer getId() {
@@ -47,13 +58,12 @@ public class Book {
         this.description = description;
     }
 
-
-    public Date getRelaseDate() {
-        return relaseDate;
+    public Timestamp getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setRelaseDate(Date relaseDate) {
-        this.relaseDate = relaseDate;
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = Timestamp.from(Instant.now());
     }
 
     public String getPrice() {
@@ -78,7 +88,7 @@ public class Book {
                 "id=" + id +
                 ", bookTitle='" + bookTitle + '\'' +
                 ", description='" + description + '\'' +
-                ", relaseDate=" + relaseDate +
+
                 ", price='" + price + '\'' +
                 ", category=" + category +
                 '}';
