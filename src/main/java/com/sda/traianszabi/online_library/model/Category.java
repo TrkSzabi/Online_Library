@@ -9,8 +9,9 @@ import javax.validation.constraints.Size;
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer categoryId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Integer id;
 
     @NotBlank
     @Size(min = 3, max = 15)
@@ -23,12 +24,12 @@ public class Category {
     private String categoryDescription;
 
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setId(Integer categoryId) {
+        this.id = categoryId;
     }
 
     public String getCategoryName() {

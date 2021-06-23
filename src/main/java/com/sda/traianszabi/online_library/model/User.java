@@ -10,11 +10,11 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "id")
     private Integer userId;
 
-    @Column(name = "login")
-    private String login;
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "password")
     private String password;
@@ -63,12 +63,12 @@ public class User {
         this.libraryAccount = libraryAccount;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -78,14 +78,6 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + userId +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", libraryAccount=" + libraryAccount +
-                '}';
-    }
 }
+
+

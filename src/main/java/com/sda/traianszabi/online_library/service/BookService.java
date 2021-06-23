@@ -26,7 +26,7 @@ public class BookService {
 
     @Transactional
     public void save(Book book){
-        book.setCategory(categoryRepository.findById(book.getCategory().getCategoryId()).orElse(null));
+        book.setCategory(categoryRepository.findById(book.getCategory().getId()).orElse(null));
         bookRepository.save(book);
 
     }

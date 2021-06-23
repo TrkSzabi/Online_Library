@@ -53,13 +53,5 @@ public class LibraryAccount {
         this.closedDate = closedDate;
     }
 
-    @Override
-    public String toString() {
-        return "LibraryAccount{" +
-                "accountId=" + accountId +
-                ", isClosed=" + isClosed +
-                ", creationDate=" + creationDate +
-                ", closedDate=" + closedDate +
-                '}';
-    }
+
 }

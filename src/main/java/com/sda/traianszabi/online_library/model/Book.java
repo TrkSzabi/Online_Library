@@ -13,6 +13,7 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "bookId")
     private Integer id;
 
     @NotBlank
@@ -23,7 +24,6 @@ public class Book {
     @Column(name = "desciprtion")
     private String description;
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "release_date")
     private Timestamp releaseDate;
 
@@ -82,16 +82,6 @@ public class Book {
         this.category = category;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", bookTitle='" + bookTitle + '\'' +
-                ", description='" + description + '\'' +
 
-                ", price='" + price + '\'' +
-                ", category=" + category +
-                '}';
-    }
 }
 

@@ -1,7 +1,6 @@
 package com.sda.traianszabi.online_library.service;
 
 
-import com.sda.traianszabi.online_library.model.Book;
 import com.sda.traianszabi.online_library.model.LibraryAccount;
 import com.sda.traianszabi.online_library.model.User;
 import com.sda.traianszabi.online_library.repository.LibraryAccountRepository;
@@ -39,27 +38,27 @@ public class UserService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        User user = userRepository.findByLogin(login);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("Invalid username or password!");
         }
-        return new org.springframework.security.core.userdetails.User(user.getLogin()
+        return new org.springframework.security.core.userdetails.User(user.getUsername()
                 , user.getPassword()
                 , new ArrayList<>());
     }
 
     public void createUser(User user) {
         User userToBeSaved = new User();
-        userToBeSaved.setLogin(user.getLogin());
+        userToBeSaved.setUsername(user.getUsername());
         userToBeSaved.setPassword(passwordEncoder.encode(user.getPassword()));
         userToBeSaved.setEmail(user.getEmail());
         userToBeSaved.setPhone(user.getPhone());
         userRepository.save(userToBeSaved);
     }
 
-    public boolean userExist(String login) {
-        User userExisting = userRepository.findByLogin(login);
+    public boolean userExist(String username) {
+        User userExisting = userRepository.findByUsername(username);
         return userExisting != null;
     }
 

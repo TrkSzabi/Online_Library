@@ -20,7 +20,7 @@ public class CategoryController {
     @PostMapping("/category/create")
     public String createCategory(@Valid @RequestBody Category category) {
         categoryService.save(category);
-        return "Category succesfull saved";
+        return "Category succesfully saved";
     }
 
     @GetMapping("/categories")

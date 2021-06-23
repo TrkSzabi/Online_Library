@@ -18,7 +18,7 @@ public class UserController {
 
     @PostMapping("/user/create")
     public ResponseEntity<String> createUser(@RequestBody User user) {
-        if (userService.userExist(user.getLogin())) {
+        if (userService.userExist(user.getUsername())) {
             return ResponseEntity.badRequest().build();
         }
         userService.createUser(user);
